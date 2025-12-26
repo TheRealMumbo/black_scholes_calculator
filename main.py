@@ -51,3 +51,16 @@ mid_price = (high_prices + low_prices)/2.0
 
 train_data = mid_price[:11000]
 test_data = mid_price[11000:]
+
+
+sacaler = MinMaxScaler()
+train_data = train_data.reshape(-1, 1)
+test_data = test_data.reshape(-1, 1)
+
+smoothing_window_size = 2500 
+for di in range(0, 10000, smoothing_window_size):
+     scaler.fit(train_data[di:di+smoothing_window_size, :])
+     train_data[di:di+smoothing_window_size,:] = scaler.transform(train_data[di:di+smoothing_window_size, :])
+    
+scaler.fit(train_data[di:di+smoothing_window_size])
+train_data[di+smoothing_window_size:,:] = scaler.transform(train_data[di+smoothing_window_size:,:])
