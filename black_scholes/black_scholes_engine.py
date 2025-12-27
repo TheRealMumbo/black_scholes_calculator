@@ -61,7 +61,7 @@ def calc_european_put_option (s0, x, r, q, t, sigma):
 
 
 
-def main():
+"""def main():
 
     print("Please Enter the actual stock price now:")
     s0 = float(input())
@@ -80,4 +80,4 @@ def main():
     print(f"European Option Price Put is: {calc_european_put_option(s0, x, r, q, t, sigma)}")
 
 
-main()
+main()"""
